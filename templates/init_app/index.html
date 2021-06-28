@@ -1,7 +1,11 @@
 {% extends "_base.html" %}
 
+{% load i18n %}
 {% load get_setting %}
 
 {% block content %}
-<h1>hello world!</h1><a href="./admin">admin</a>
+<h1>{% trans "Hello World" %}!</h1><a href="./admin">{% trans "admin" %}</a>
+<a href="/en/">{% trans "English" %}</a>
+<a href="/de/">{% trans "German" %}</a>
+<a href="/fr/">{% trans "French" %}</a>
 {% endblock %}

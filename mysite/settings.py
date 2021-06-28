@@ -11,6 +11,13 @@
 import os
 import configparser
 
+from django.utils.translation import ugettext_lazy as _
+
+# ================================= HELPERS ====================================
+def _strip(snippet):
+  return snippet.partition('{% trans "')[2].partition('" %}')[0]
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,7 +38,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -70,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -111,21 +119,26 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
+# to build language files, use 
+# django-admin makemessages -l de -e html,txt,ini
+# translate: https://localise.biz/free/poeditor
+LOCALE_PATHS = (
+  os.path.join( BASE_DIR, "locale"),
+)
 
-LANGUAGE_CODE = 'en-us'
+ACCOUNT_LANGUAGES = tuple([(x[0], _(_strip(x[1]))) for x in config.items("alternative_language_list")])
 
-TIME_ZONE = 'UTC'
-
+LANGUAGES = ACCOUNT_LANGUAGES
+LANGUAGE_CODE = config.get("settings", "DEFAULT_LANGUAGE")
+TIME_ZONE = config.get("settings", "DEFAULT_TIMEZONE")
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 ALLOWED_HOSTS = ['*']
 X_FRAME_OPTIONS = '*'
