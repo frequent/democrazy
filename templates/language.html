@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+{% load get_setting %}
+
+{% block content %}
+  <h1>{% trans "Set language" %}</h1>
+  {% block body %}
+  <form method="POST" action="{% url 'set_language' %}">
+    {% csrf_token %}
+    <select class="form-control" name="language">
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+      {% for language in languages %}
+        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+          {{ language.name_local }} ({{ language.code }})
+        </option>
+      {% endfor %}
+    </select>
+    <input type="hidden" name="next" value="/" />
+    <button type="submit" class="btn btn-primary">{% trans "Change language" %}</button>
+  </form>
+  {% endblock %}
+{% endblock %}

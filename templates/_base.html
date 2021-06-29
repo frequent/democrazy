@@ -38,6 +38,28 @@
     <style type="text/css"></style>
     </head>
     <body>
-      {% block content %}{% endblock content %}
+      {% block header %}
+      <header>
+        <nav>
+  <a href="/">
+    <img src="{% static 'PLATFORM_LOGO_URL'|get_setting %}" height="48px" alt="{{ 'PLATFORM_TITLE'|get_setting }}">
+  </a>
+  <ul>
+    <li><a href="/documentation">{% trans "Documentation" %}</a></li>
+    <li><a href="/confidentiality">{% trans "Data Protection" %}</a></li>
+    <li><a href="/about">{% trans "Legal Notice" %}</a></li>
+    <!-- if auth-->
+    <li><a href="/logout">{% trans "Sign out" %}</a></li>
+    <!-- else-->
+    <li><a href="/login">{% trans "Login" %}</a></li>
+    <li><a href="/register">{% trans "Get Started" %}</a></li>
+    <!-- endif-->
+    <li><a href="/language">{% trans "Set language" %}</a></li>
+  </ul>
+</nav>
+      </header>
+      {% endblock header %}
+      <main>{% block content %}{% endblock content %}</main>
+      <footer></footer>
     </body>
     </html>

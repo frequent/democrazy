@@ -9,7 +9,7 @@
 # https://docs.djangoproject.com/en/2.0/howto/custom-template-tags/
 # https://docs.djangoproject.com/en/dev/topics/settings/#custom-default-settings
 
-import os
+
 from django.conf import settings
 from django import template
 from django.template.defaultfilters import stringfilter
@@ -24,11 +24,17 @@ def get_setting(my_setting):
   try:
     lookup_path = [x.upper() for x in my_setting.split(".")]
     if len(lookup_path) > 1:
-      reply = settings
+      reply = settings.CUSTOM_DICT
       for key in lookup_path:
-        reply = getattr(reply, key.replace("-", "_"))
+        #reply = getattr(reply, key.replace("-", "_"))
+        # not sure this works
+        reply = reply.get("settings", key.replace("-", "_"))
       return reply
     else:
-      return getattr(settings, my_setting.upper())
+      # no longer works
+      #return getattr(settings, my_setting.upper())
+      return settings.CUSTOM_DICT.get("settings", my_setting.upper())
+
   except AttributeError:
+    print("y")
     return None

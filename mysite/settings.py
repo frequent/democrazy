@@ -17,7 +17,6 @@ from django.utils.translation import ugettext_lazy as _
 def _strip(snippet):
   return snippet.partition('{% trans "')[2].partition('" %}')[0]
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,9 +28,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b#s*_o(3t3ai_k(c5po@h7a=nj5#vjkd3u7ckhnx@)mi=8fn67'
 
 # Retrieve initialization configuration, use raw parser i18n-texts
-config = configparser.RawConfigParser()
-config.optionxform=str
-config.read(os.path.join(BASE_DIR, "init.ini"))
+CUSTOM_DICT = configparser.RawConfigParser()
+CUSTOM_DICT.optionxform=str
+CUSTOM_DICT.read(os.path.join(BASE_DIR, "init.ini"))
+print("set")
+print(CUSTOM_DICT.get("settings", "DEFAULT_LANGUAGE"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -126,19 +127,28 @@ LOCALE_PATHS = (
   os.path.join( BASE_DIR, "locale"),
 )
 
-ACCOUNT_LANGUAGES = tuple([(x[0], _(_strip(x[1]))) for x in config.items("alternative_language_list")])
+ACCOUNT_LANGUAGES = tuple([(x[0], _(_strip(x[1]))) for x in CUSTOM_DICT.items("alternative_language_list")])
 
 LANGUAGES = ACCOUNT_LANGUAGES
-LANGUAGE_CODE = config.get("settings", "DEFAULT_LANGUAGE")
-TIME_ZONE = config.get("settings", "DEFAULT_TIMEZONE")
+LANGUAGE_CODE = CUSTOM_DICT.get("settings", "DEFAULT_LANGUAGE")
+TIME_ZONE = CUSTOM_DICT.get("settings", "DEFAULT_TIMEZONE")
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+STATICFILES_DIRS = (
+
+  # Put strings here, like "/home/html/static" or "C:/www/django/static".
+  # Always use forward slashes, even on Windows.
+  # Don"t forget to use absolute paths, not relative paths.
+  os.path.join( BASE_DIR, "static"),
+)
+
+STATIC_ROOT = os.path.join( BASE_DIR, "public", "static")
 
 ALLOWED_HOSTS = ['*']
 X_FRAME_OPTIONS = '*'

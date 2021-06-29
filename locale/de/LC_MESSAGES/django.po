@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-28 12:51+0000\n"
-"PO-Revision-Date: 2021-06-28 13:00+0000\n"
+"POT-Creation-Date: 2021-06-29 12:00+0000\n"
+"PO-Revision-Date: 2021-06-29 12:03+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Unknown\n"
+"Language-Team: No linguistic content\n"
 "Language: zxx\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,26 @@ msgstr "Englisch"
 msgid "French"
 msgstr "Französisch"
 
+#: templates/init_admin/register.html:10
+msgid "Registration"
+msgstr "Registrierung"
+
+#: templates/init_admin/register.html:14
+msgid "Create an account"
+msgstr "Benutzerkonto erstellen"
+
+#: templates/init_admin/register.html:16
+msgid "If you already have an account,"
+msgstr "Sie haben bereits ein Benutzerkonto:"
+
+#: templates/init_admin/register.html:16
+msgid "login"
+msgstr "Anmelden"
+
+#: templates/init_admin/register.html:16
+msgid "instead"
+msgstr "anstelle"
+
 #: templates/init_app/index.html:7
 msgid "Hello World"
 msgstr "Hallo Welt"
@@ -34,3 +54,11 @@ msgstr "Hallo Welt"
 #: templates/init_app/index.html:7
 msgid "admin"
 msgstr "admin"
+
+#: templates/init_app/index.html:9 templates/language.html:7
+msgid "Set language"
+msgstr "Sprache ändern"
+
+#: templates/language.html:24
+msgid "Change language"
+msgstr "Sprache ändern"

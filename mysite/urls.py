@@ -7,9 +7,11 @@
 # The "urlpatterns" list routes URLs to views. For more information please see:
 # https://docs.djangoproject.com/en/3.0/topics/http/urls/
 
-#from django.urls import path
 from django.conf.urls import url, include
+from django.conf.urls.static import static
+from django.views.generic.base import TemplateView
 from django.conf.urls.i18n import i18n_patterns
+from django.conf import settings
 
 urlpatterns = [
 
@@ -20,6 +22,8 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r"", include("mysite.init_admin.urls")),
-    #path('', views.index, name='index'),
+    url(r"^language$", TemplateView.as_view(template_name="language.html")),
     url(r"", include("mysite.init_app.urls")),
+)  + static(
+  settings.STATIC_URL, document_root=settings.STATIC_ROOT
 )
