@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-29 12:00+0000\n"
-"PO-Revision-Date: 2021-06-29 12:06+0000\n"
+"POT-Creation-Date: 2021-06-30 20:10+0000\n"
+"PO-Revision-Date: 2021-06-30 20:19+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: No linguistic content\n"
 "Language: zxx\n"
@@ -15,37 +15,70 @@ msgstr ""
 "X-Loco-Parser: loco_parse_po\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: init.ini:20
+#: init.ini:22
 msgid "German"
 msgstr "German"
 
-#: init.ini:21
+#: init.ini:23
 msgid "English"
 msgstr "English"
 
-#: init.ini:22
+#: init.ini:24
 msgid "French"
 msgstr "French"
 
-#: templates/init_admin/register.html:10
+#: templates/_base.html:48 templates/static/documentation.html:6
+msgid "Documentation"
+msgstr "Documentation"
+
+#: templates/_base.html:49
+msgid "Data Protection"
+msgstr "Data Privacy"
+
+#: templates/_base.html:50
+msgid "Legal Notice"
+msgstr "Legal Notice"
+
+#: templates/_base.html:52
+msgid "Log out"
+msgstr "Logout"
+
+#: templates/_base.html:54 templates/init_admin/login.html:6 
+#: templates/init_admin/login.html:10 templates/init_admin/register.html:14
+#| msgid "login"
+msgid "Login"
+msgstr "Login"
+
+#: templates/_base.html:55
+msgid "Get Started"
+msgstr "Register"
+
+#: templates/_base.html:57 templates/init_app/index.html:9 
+#: templates/static/language.html:22
+msgid "Set language"
+msgstr "Set language"
+
+#: templates/init_admin/login.html:12
+#| msgid "If you already have an account,"
+msgid "You don't have an account?"
+msgstr "You don't have an account?"
+
+#: templates/init_admin/logout.html:6 templates/init_admin/logout.html:7
+msgid "Logout"
+msgstr "Logout"
+
+#: templates/init_admin/register.html:8
 msgid "Registration"
 msgstr "Registration"
 
-#: templates/init_admin/register.html:14
+#: templates/init_admin/register.html:12
 msgid "Create an account"
 msgstr "Create an account"
 
-#: templates/init_admin/register.html:16
-msgid "If you already have an account,"
+#: templates/init_admin/register.html:14
+#| msgid "If you already have an account,"
+msgid "You already have an account?"
 msgstr "You already have an account?"
-
-#: templates/init_admin/register.html:16
-msgid "login"
-msgstr "Login"
-
-#: templates/init_admin/register.html:16
-msgid "instead"
-msgstr "instead"
 
 #: templates/init_app/index.html:7
 msgid "Hello World"
@@ -55,10 +88,15 @@ msgstr "Hello World"
 msgid "admin"
 msgstr "admin"
 
-#: templates/init_app/index.html:9 templates/language.html:7
-msgid "Set language"
-msgstr "Set language"
+#: templates/static/about.html:6
+msgid "About"
+msgstr "About"
 
-#: templates/language.html:24
-msgid "Change language"
-msgstr "Change language"
+#: templates/static/confidentiality.html:6
+msgid "Data Privacy"
+msgstr "Data Privacy"
+
+#: templates/static/language.html:7
+#| msgid "Set language"
+msgid "Languages"
+msgstr "Languages"

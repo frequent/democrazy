@@ -10,30 +10,25 @@ from django.urls import resolve, reverse, translate_url, LocalePrefixPattern
 
 from mysite.init_app import views as init_app_views
 
-
-
 def test_url_route_validation(self):
   ''' validate all routes work '''
 
   # testing in en-us
-  activate('en')
+  lang = 'en'
+  slash = '/'
+  activate(lang)
 
-  url = reverse('about', args=[])
-  self.assertEqual(url, '/en/about')
-
-  resolver = resolve('/en/about')
-  self.assertEqual(resolver.view_name, 'about')
-
-  '''
   routes = {
-    "/about": init_app_views.about,
-    "/confidentiality": init_app_views.confidentiality,
-    "/documentation": init_app_views.documentation,
-    "/language": init_app_views.account_language
+    "about": init_app_views.about,
+    "confidentiality": init_app_views.confidentiality,
+    "documentation": init_app_views.documentation,
+    "language": init_app_views.language
   }
 
   for route,function in routes.items():
-    found = resolve(route)
-    self.assertEqual(found.func, function)
-  '''
+    route_i18n = slash + lang + slash + route 
+    url = reverse(route, args=[])
+    self.assertEqual(url, route_i18n)  
 
+    resolver = resolve(route_i18n)
+    self.assertEqual(resolver.view_name, route)

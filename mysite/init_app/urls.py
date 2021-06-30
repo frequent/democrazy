@@ -6,9 +6,7 @@
 # ------------------------------------------------------------------------------
 
 from django.conf.urls import url
-from django.views import generic
-
-from . import views
+from mysite.init_app import views
 
 urlpatterns = [
   #url(r'^(?P<filename>(robots.txt)|(humans.txt))$', views.crawler, name='crawler'),

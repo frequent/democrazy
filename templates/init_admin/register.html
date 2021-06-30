@@ -1,19 +1,15 @@
 {% extends "_base.html" %} 
 
 {% load i18n %}
-{% load get_setting %}
 
 {% block content %}
 
 <!--Register--> 
-<div class="container py-5">
-	<h1>{% trans "Registration" %}</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ register_form }}                    
-		<button class="btn btn-primary" type="submit">{% trans "Create an account"%}</button>
-	</form>
-	<p>{% trans "If you already have an account," %}&nbsp;<a href="/login">{% trans "login" %}</a>&nbps;{% trans "instead" %}.</p>
-</div>
-
+<h1>{% trans "Registration" %}</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ register_form }}                    
+  <button type="submit">{% trans "Create an account"%}</button>
+</form>
+<p>{% trans "You already have an account?" %}&nbsp;<a href="/login">{% trans "Login" %}</a></p>
 {% endblock %}

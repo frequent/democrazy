@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-29 12:00+0000\n"
-"PO-Revision-Date: 2021-06-29 12:09+0000\n"
+"POT-Creation-Date: 2021-06-30 18:03+0000\n"
+"PO-Revision-Date: 2021-06-30 20:22+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: No linguistic content\n"
 "Language: zxx\n"
@@ -15,17 +15,47 @@ msgstr ""
 "X-Loco-Parser: loco_parse_po\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: init.ini:20
+#: init.ini:22
 msgid "German"
 msgstr "Allemand"
 
-#: init.ini:21
+#: init.ini:23
 msgid "English"
 msgstr "Anglais"
 
-#: init.ini:22
+#: init.ini:24
 msgid "French"
 msgstr "Français"
+
+#: templates/_base.html:48 templates/static/documentation.html:6
+msgid "Documentation"
+msgstr "Documentation"
+
+#: templates/_base.html:49
+msgid "Data Protection"
+msgstr "Confidentialité"
+
+#: templates/_base.html:50
+msgid "Legal Notice"
+msgstr "Mentions légales"
+
+#: templates/_base.html:52
+msgid "Sign out"
+msgstr "Déconnexion"
+
+#: templates/_base.html:54 templates/init_admin/register.html:16
+#| msgid "login"
+msgid "Login"
+msgstr "Connexion"
+
+#: templates/_base.html:55
+msgid "Get Started"
+msgstr "S'inscrire"
+
+#: templates/_base.html:57 templates/init_app/index.html:9 
+#: templates/static/language.html:22
+msgid "Set language"
+msgstr "Changer la langue"
 
 #: templates/init_admin/register.html:10
 msgid "Registration"
@@ -36,16 +66,9 @@ msgid "Create an account"
 msgstr "S'inscrire"
 
 #: templates/init_admin/register.html:16
-msgid "If you already have an account,"
+#| msgid "If you already have an account,"
+msgid "You already have an account?"
 msgstr "Vous êtes déjà inscrit ?"
-
-#: templates/init_admin/register.html:16
-msgid "login"
-msgstr "Connexion"
-
-#: templates/init_admin/register.html:16
-msgid "instead"
-msgstr "delete me"
 
 #: templates/init_app/index.html:7
 msgid "Hello World"
@@ -55,10 +78,15 @@ msgstr "Bienvenue le monde"
 msgid "admin"
 msgstr "admin"
 
-#: templates/init_app/index.html:9 templates/language.html:7
-msgid "Set language"
-msgstr "Changer la langue"
+#: templates/static/about.html:6
+msgid "About"
+msgstr "À propos"
 
-#: templates/language.html:24
-msgid "Change language"
-msgstr "Changer la langue"
+#: templates/static/confidentiality.html:6
+msgid "Data Privacy"
+msgstr "Confidentialité"
+
+#: templates/static/language.html:7
+#| msgid "Set language"
+msgid "Languages"
+msgstr "Langues"
