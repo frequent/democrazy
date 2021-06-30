@@ -119,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 # to build language files, use 
-# django-admin makemessages -l de -e html,txt,ini
+# django-admin makemessages -l de -e html,txt,ini,py
 # translate: https://localise.biz/free/poeditor
 LOCALE_PATHS = (
   os.path.join( BASE_DIR, "locale"),

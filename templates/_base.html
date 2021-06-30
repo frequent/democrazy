@@ -59,7 +59,9 @@
 </nav>
       </header>
       {% endblock header %}
-      <main>{% block content %}{% endblock content %}</main>
+      <main>
+      {% include "fragments/messages.html" %}
+      {% block content %}{% endblock content %}</main>
       <footer></footer>
     </body>
     </html>
