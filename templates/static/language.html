@@ -4,7 +4,7 @@
 {% load get_setting %}
 
 {% block content %}
-  <h1>{% trans "Languages" %}</h1>
+  <h1>{% trans "Set language" %}</h1>
   {% block body %}
   <form method="POST" action="{% url 'set_language' %}">
     {% csrf_token %}
@@ -19,7 +19,7 @@
       {% endfor %}
     </select>
     <input type="hidden" name="next" value="/" />
-    <button type="submit" class="btn btn-primary">{% trans "Set language" %}</button>
+    <button type="submit" class="btn btn-primary">{% trans "Change language" %}</button>
   </form>
-  {% endblock body%}
-{% endblock content %}
+  {% endblock %}
+{% endblock %}
