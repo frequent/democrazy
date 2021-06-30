@@ -27,5 +27,5 @@ def documentation(request):
   return render(request, 'static/documentation.html', context=dict())
 
 # ---------------------------- Language Page -------------------------------
-def account_language(request):
+def language(request):
   return render(request, 'static/language.html', context=dict())

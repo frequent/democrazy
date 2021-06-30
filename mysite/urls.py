@@ -24,7 +24,7 @@ urlpatterns += i18n_patterns(
     url(r"^$", views.index, name="index"),
 
     # static pages
-    url(r"^language$", views.account_language, name="account_language"),
+    url(r"^language$", views.language, name="language"),
     url(r"^about$", views.about, name="about"),
     url(r"^confidentiality$", views.confidentiality, name="confidentiality"),
     url(r"^documentation$", views.documentation, name="documentation"),
