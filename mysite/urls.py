@@ -1,5 +1,5 @@
 # ==============================================================================
-# Voty GLOBAL Url Configuration
+# GLOBAL Url Configuration
 # ==============================================================================
 #
 # parameters (*default)
@@ -9,20 +9,26 @@
 
 from django.conf.urls import url, include
 from django.conf.urls.static import static
-from django.views.generic.base import TemplateView
 from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 
+from mysite.init_app import views
+
+# required for multi-language
 urlpatterns = [
-
-    # required for multi-language
     url(r"^i18n/", include("django.conf.urls.i18n")),
-
 ]
 
 urlpatterns += i18n_patterns(
-    url(r"", include("mysite.init_admin.urls")),
-    url(r"^language$", TemplateView.as_view(template_name="language.html")),
+    url(r"", include("mysite.init_admin.urls")),    
+    url(r"^$", views.index, name="index"),
+
+    # static pages
+    url(r"^language$", views.account_language, name="account_language"),
+    url(r"^about$", views.about, name="about"),
+    url(r"^confidentiality$", views.confidentiality, name="confidentiality"),
+    url(r"^documentation$", views.documentation, name="documentation"),
+
     url(r"", include("mysite.init_app.urls")),
 )  + static(
   settings.STATIC_URL, document_root=settings.STATIC_ROOT

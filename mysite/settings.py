@@ -31,8 +31,6 @@ SECRET_KEY = 'b#s*_o(3t3ai_k(c5po@h7a=nj5#vjkd3u7ckhnx@)mi=8fn67'
 CUSTOM_DICT = configparser.RawConfigParser()
 CUSTOM_DICT.optionxform=str
 CUSTOM_DICT.read(os.path.join(BASE_DIR, "init.ini"))
-print("set")
-print(CUSTOM_DICT.get("settings", "DEFAULT_LANGUAGE"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

@@ -1,17 +1,7 @@
 # ==============================================================================
-# init_app urls
+# just to make tests run
 # ==============================================================================
 #
 # parameters (*default)
 # ------------------------------------------------------------------------------
-
-from django.conf.urls import url
-
-from . import views
-
-urlpatterns = [
-  #url(r'^(?P<filename>(robots.txt)|(humans.txt))$', views.crawler, name='crawler'),
-
-  # home/i18n
-  url(r"^$", views.index, name="index"),
-]
+from mysite.wsgi import application
