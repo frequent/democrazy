@@ -1,5 +1,5 @@
 # ==============================================================================
-# keep track of tests, since they can't be commmitted
+# keep track of tests - navigation/routing
 # ==============================================================================
 #
 # parameters (*default)

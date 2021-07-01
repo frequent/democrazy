@@ -20,7 +20,8 @@ def register_request(request):
 			login(request, user)
 			messages.success(request, _("Registration successful."))
 			return redirect("/")
-		messages.error(request, _("Unsuccessful registration. Invalid information."))
+		messages.error(request, form.errors)
+    # properly handle this with translateable strings _("Unsuccessful registration. Invalid information.")
 	form = NewUserForm
 	return render (request=request, template_name="init_admin/register.html", context={"register_form": form})
 
