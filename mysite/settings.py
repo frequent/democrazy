@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b#s*_o(3t3ai_k(c5po@h7a=nj5#vjkd3u7ckhnx@)mi=8fn67'
+SECRET_KEY = os.environ['UNSECURE_SECRET_KEY_VALUE']
 
 # Retrieve initialization configuration, use raw parser i18n-texts
 CUSTOM_DICT = configparser.RawConfigParser()
@@ -88,7 +88,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -115,6 +114,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ['EMAIL_HOST_VALUE']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER_VALUE']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD_VALUE']
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+#EMAIL_HOST = CUSTOM_DICT.get("settings", "EMAIL_HOST_VALUE")
+#EMAIL_HOST_USER = CUSTOM_DICT.get("settings", EMAIL_HOST_USER_VALUE)
+#EMAIL_HOST_PASSWORD = CUSTOM_DICT.get("settings", "EMAIL_HOST_PASSWORD_VALUE")
+#EMAIL_PORT = CUSTOM_DICT.get("settings", "EMAIL_PORT_VALUE")
+#EMAIL_USE_TLS = CUSTOM_DICT.get("settings", "EMAIL_USE_TLS_VALUE")
+#EMAIL_USE_SSL = CUSTOM_DICT.get("settings", "EMAIL_USE_SSL_VALUE")
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER 
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
